@@ -9,8 +9,8 @@ const path       = require("path"),
 const app    = express(),
       server = http.Server(app);
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json({limit: '50mb', extended: true}));
+app.use(bodyParser.urlencoded({limit: '50mb', extended: true }));
 app.set("view engine", "pug");
 app.set("views", "src/http/views");
 app.use(express.static("src/http/public"));
